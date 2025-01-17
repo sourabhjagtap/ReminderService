@@ -3,7 +3,11 @@ const bodyPareser = require('body-parser');
 
 const { PORT } = require('./config/serverConfig');
 
-const {sendBasicEmail} = require('./services/email-service');
+//const {sendBasicEmail} = require('./services/email-service');
+
+
+//for sheduling the task
+const cron = require('node-cron');
 
 const setupAndStartServer = ()=>{
     const app = express();
@@ -13,7 +17,7 @@ const setupAndStartServer = ()=>{
     app.listen(PORT,()=>{
         console.log(`Server started at port ${PORT}`);
 
-        //uncomment this below code function tot send a mail
+        //uncomment this below code function to send a mail
         // sendBasicEmail(
         //     'support@admim.com',//from
         //     'penguinlazy147@gmail.com',//to
